@@ -29,12 +29,17 @@
 │   └── healthcare_dataset.csv     # Structured healthcare dataset
 ├── outputs/
 │   └── test_predictions.csv       # Model prediction outputs
-├── plots/
-│   ├── figure_01.png              # Exploratory / distribution plots
-│   ├── figure_02.png              # Model evaluation plots
-│   └── figure_03.png              # Residuals / diagnostics
-├── src/
-│   └── main.py                    # Main machine learning pipeline
+├── pic/
+│   ├── Figure_1.png
+│   ├── Figure_2.png
+│   ├── Figure_3.png
+│   ├── Figure_4.png
+│   ├── Figure_5.png
+│   ├── Figure_6.png
+│   ├── Figure_7.png
+│   └── Figure_8.png
+├── main.py                        # Main ML pipeline
+├── Report.docx                    # Detailed report
 └── README.md
 ```
 
