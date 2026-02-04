@@ -57,6 +57,20 @@ longer-term interest in medical artificial intelligence and healthcare analytics
 
 ---
 
+## Preview
+
+<p align="center">
+  <img src="pic/Figure_1.png" width="80%">
+  <br>
+  <em>Figure 1 — Exploratory visualization</em>
+</p>
+
+<p align="center">
+  <img src="pic/Figure_2.png" width="80%">
+  <br>
+  <em>Figure 2 — Model evaluation / diagnostics</em>
+</p>
+
 ## Objectives
 
 - Apply supervised machine learning to a real healthcare dataset
