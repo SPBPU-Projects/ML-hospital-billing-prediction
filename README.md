@@ -22,7 +22,7 @@
 ![Academic](https://img.shields.io/badge/Type-Academic%20Project-informational)
 
 ## Project Structure
-
+md
 ```text
 .
 ├── data/
@@ -103,8 +103,9 @@ df.describe(include="all")
 ###  Target Definition and Feature Selection
 
 ```python
-TARGET = "Billing Amount" 
-DROP_COLS = ["Name", "Doctor", "Hospital"] FEATURES = [c for c in df.columns if c not in DROP_COLS + [TARGET]] 
+TARGET = "Billing Amount"
+DROP_COLS = ["Name", "Doctor", "Hospital"]
+FEATURES = [c for c in df.columns if c not in DROP_COLS + [TARGET]] 
 ```
 
 High-cardinality identifier columns are removed to reduce noise and prevent model memorization.
@@ -114,9 +115,9 @@ High-cardinality identifier columns are removed to reduce noise and prevent mode
 ### Feature Engineering
 
 ```python
-df["Length_of_Stay"] = ( 
-	df["Discharge Date" df["Date of Admission"] 
-).dt.days 
+df["Length_of_Stay"] = (
+    df["Discharge Date"] - df["Date of Admission"]
+).dt.days
 ```
 
 Date columns are converted to datetime objects and used to derive a numerical feature representing hospital stay duration.
@@ -126,8 +127,8 @@ Date columns are converted to datetime objects and used to derive a numerical fe
 ### Data Cleaning
 
 ```python
-df = df.drop_duplicates() 
-df = df[df["Billing Amount"] >= 0] 
+df = df.drop_duplicates()
+df = df[df["Billing Amount"] >= 0]
 ```
 
 - Duplicate rows are removed
@@ -140,12 +141,12 @@ df = df[df["Billing Amount"] >= 0]
 ### Preprocessing Pipeline
 
 ```python
-preprocessor = ColumnTransformer( 
-	transformers=[ 
-		("num", StandardScaler(), numeric_features), 
-		("cat", OneHotEncoder(handle_unknown="ignore"), +categorical_features), 
-	] 
-) 
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("num", StandardScaler(), numeric_features),
+        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_features),
+    ]
+)
 ```
 
 A preprocessing pipeline is used to ensure consistent scaling of numerical features and encoding of categorical variables, while preventing data leakage.
@@ -154,15 +155,6 @@ A preprocessing pipeline is used to ensure consistent scaling of numerical featu
 - Categorical encoding
 - Leakage-free fitting via pipelines
 
----
-
-
-### Model Training
-
-```python
-Baseline and non-linear models are trained:
-LinearRegression() Ridge() RandomForestRegressor(n_estimators=300) 
-```
 ---
 
 ### Model Evaluation
